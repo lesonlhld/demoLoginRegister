@@ -1,10 +1,11 @@
 <?php
-
+//Import PHPMailer classes into the global namespace
+//These must be at the top of your script, not inside a function
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-require_once("PHPMailer/src/PHPMailer.php");
-require_once("PHPMailer/src/SMTP.php");
-require_once("PHPMailer/src/Exception.php");
+
+//Load Composer's autoloader
+require 'vendor/autoload.php';
 require_once("connect.php");
 ?>
 
