@@ -1,18 +1,17 @@
-drop database if exists demoLoginRegister;
-create database demoLoginRegister;
-use demoLoginRegister;
+drop database if exists demothuctap;
+create database demothuctap;
+use demothuctap;
 
-CREATE TABLE demoLoginRegister.users (
+CREATE TABLE demothuctap.users (
 	user_id int NOT NULL AUTO_INCREMENT,
 	name varchar(255) NOT NULL,
     gender enum('male','female') DEFAULT NULL,
-	email varchar(50) DEFAULT NULL UNIQUE,
-	username varchar(50) NOT NULL,
+	email varchar(50) NOT NULL UNIQUE,
 	password varchar(50) NOT NULL,
-	PRIMARY KEY (user_id),
-	UNIQUE INDEX UQ_username (username ASC) VISIBLE /* ASC xếp tăng dần, UNIQUE username là giá trị duy nhât không trùng lặp */
+	reset_token varchar(50) DEFAULT NULL,
+	PRIMARY KEY (user_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-INSERT INTO users (name, username, password) 
+INSERT INTO users (name, email, password) 
 VALUES 
-	('admin', 'admin', '123456');
+	('admin', 'admin@gmail.com', '123456');
